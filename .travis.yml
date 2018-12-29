@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t slick3gz/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run slick3gz/docker-react npm run test -- --coverage
